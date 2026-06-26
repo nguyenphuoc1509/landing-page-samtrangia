@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { cld } from "@/lib/cloudinary";
 
 const STORY_BLOCKS = [
   {
@@ -17,7 +18,7 @@ const STORY_BLOCKS = [
       "✨ Thiết kế sang trọng, phù hợp trưng bày và làm quà biếu cao cấp",
       "🎁 Lựa chọn ý nghĩa dành tặng người thân, đối tác và những dịp đặc biệt",
     ],
-    image: "/image/story-1.png",
+    image: cld("samtramy/story-1"),
     imageAlt: "Rượu Sâm Nguyên Củ Ngọc Linh Trà My",
     reverse: false,
   },
@@ -35,15 +36,14 @@ const STORY_BLOCKS = [
       "🎖️ Phù hợp cho những người yêu thích sản phẩm dược liệu cao cấp",
       "🎁 Là món quà sang trọng thể hiện sự trân trọng và tinh tế",
     ],
-    image: "/image/story-2.png",
+    image: cld("samtramy/story-2"),
     imageAlt: "Rượu Sâm Ngọc Linh cao cấp",
     reverse: true,
   },
   {
     id: "ruou-sam-tra-my",
     eyebrow: "Rượu Sâm Ngọc Linh Trà My",
-    title:
-      "Hương Vị Núi Rừng Quảng Nam Trong Từng Giọt Rượu Sâm",
+    title: "Hương Vị Núi Rừng Quảng Nam Trong Từng Giọt Rượu Sâm",
     intro:
       "Được tạo nên từ nguồn nguyên liệu quý tại vùng Trà My, Quảng Nam — nơi gắn liền với danh tiếng của Sâm Ngọc Linh:",
     points: [
@@ -53,15 +53,14 @@ const STORY_BLOCKS = [
       "🍶 Đóng chai thủy tinh cao cấp, thích hợp lưu giữ lâu dài",
       "🎁 Sản phẩm phù hợp làm quà biếu trong các dịp quan trọng",
     ],
-    image: "/image/story-3.png",
+    image: cld("samtramy/story-3"),
     imageAlt: "Rượu Sâm Ngọc Linh Trà My chai thủy tinh",
     reverse: false,
   },
   {
     id: "ruou-sam-qua-tang",
     eyebrow: "Rượu Sâm Cao Cấp — Quà Tặng Ý Nghĩa",
-    title:
-      "Trang Trọng, Tinh Tế — Món Quà Mang Giá Trị Việt",
+    title: "Trang Trọng, Tinh Tế — Món Quà Mang Giá Trị Việt",
     intro:
       "Rượu Sâm Ngọc Linh Trà My là lựa chọn phù hợp để dành tặng người thân, khách hàng và đối tác:",
     points: [
@@ -71,13 +70,19 @@ const STORY_BLOCKS = [
       "📦 Đóng gói cẩn thận, đảm bảo tính thẩm mỹ khi trao tặng",
       "🏆 Gửi gắm sự trân trọng qua từng sản phẩm",
     ],
-    image: "/image/story-4.png",
+    image: cld("samtramy/story-4"),
     imageAlt: "Rượu Sâm Ngọc Linh hộp quà cao cấp",
     reverse: true,
   },
 ];
 
-function StoryBlockReveal({ block, index }: { block: (typeof STORY_BLOCKS)[0]; index: number }) {
+function StoryBlockReveal({
+  block,
+  index,
+}: {
+  block: (typeof STORY_BLOCKS)[0];
+  index: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -91,13 +96,16 @@ function StoryBlockReveal({ block, index }: { block: (typeof STORY_BLOCKS)[0]; i
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-
           {/* Text */}
           <motion.div
             className={`flex flex-col gap-4 ${block.reverse ? "md:order-2" : "md:order-1"}`}
             initial={{ opacity: 0, x: block.reverse ? 40 : -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            transition={{
+              duration: 0.65,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.1,
+            }}
           >
             <p className="text-[#C4A468] text-xs font-semibold tracking-widest uppercase">
               {block.eyebrow}
@@ -129,7 +137,11 @@ function StoryBlockReveal({ block, index }: { block: (typeof STORY_BLOCKS)[0]; i
             style={{ aspectRatio: "1 / 1" }}
             initial={{ opacity: 0, scale: 0.92 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            transition={{
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.15,
+            }}
           >
             <img
               src={block.image}
@@ -137,7 +149,6 @@ function StoryBlockReveal({ block, index }: { block: (typeof STORY_BLOCKS)[0]; i
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </motion.div>
-
         </div>
       </div>
     </motion.div>
@@ -155,7 +166,6 @@ export default function StorySection() {
       <div className="bg-gray-50 border-b border-gray-100" ref={bannerRef}>
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-
             <motion.div
               className="relative w-full h-[380px] rounded-2xl overflow-hidden bg-gray-200"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -163,7 +173,7 @@ export default function StorySection() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <img
-                src="/image/banner.png"
+                src={cld("samtramy/banner", { width: 800 })}
                 alt="Câu chuyện sản phẩm Rượu Sâm Trần Gia"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
@@ -173,19 +183,25 @@ export default function StorySection() {
               className="flex flex-col gap-5"
               initial={{ opacity: 0, x: 36 }}
               animate={bannerInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.15,
+              }}
             >
               <p className="text-[#C4A468] text-xs font-semibold tracking-widest uppercase">
                 Câu chuyện Rượu Sâm Trần GIa
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
-                Từ đại ngàn Ngọc Linh, Sâm Trần Gia mang đến những chai rượu sâm lưu giữ hương vị và giá trị của núi rừng Việt Nam.
+                Từ đại ngàn Ngọc Linh, Sâm Trần Gia mang đến những chai rượu sâm
+                lưu giữ hương vị và giá trị của núi rừng Việt Nam.
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Sâm Ngọc Linh là một trong những dòng sâm quý của Việt Nam, gắn liền
-với vùng núi Ngọc Linh và Trà My, Quảng Nam. Rượu Sâm Trà My được tạo
-nên từ những củ sâm nguyên vẹn kết hợp cùng rượu nếp truyền thống, lưu giữ
-hương vị đặc trưng và giá trị văn hóa của vùng đất này.
+                Sâm Ngọc Linh là một trong những dòng sâm quý của Việt Nam, gắn
+                liền với vùng núi Ngọc Linh và Trà My, Quảng Nam. Rượu Sâm Trà
+                My được tạo nên từ những củ sâm nguyên vẹn kết hợp cùng rượu nếp
+                truyền thống, lưu giữ hương vị đặc trưng và giá trị văn hóa của
+                vùng đất này.
               </p>
 
               <motion.button
@@ -206,7 +222,6 @@ hương vị đặc trưng và giá trị văn hóa của vùng đất này.
                 </motion.span>
               </motion.button>
             </motion.div>
-
           </div>
         </div>
       </div>

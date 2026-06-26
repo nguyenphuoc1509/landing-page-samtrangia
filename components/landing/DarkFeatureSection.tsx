@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { cld } from "@/lib/cloudinary";
 
 const FEATURES = [
   {
@@ -168,7 +169,7 @@ export default function DarkFeatureSection() {
                 style={{ border: "1px solid rgba(200,200,220,0.18)", background: "linear-gradient(145deg, rgba(44,44,50,0.95) 0%, rgba(26,26,30,0.98) 100%)" }}
               >
                 <Image
-                  src="/image/CLASSIC.png"
+                  src={cld("samtramy/CLASSIC", { width: 340 })}
                   alt="Rượu Sâm Ngọc Linh"
                   fill
                   className="object-contain"

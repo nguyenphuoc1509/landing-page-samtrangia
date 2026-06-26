@@ -8,22 +8,36 @@ import { ProductItem } from "./types";
 import ContactPopup from "./ContactPopup";
 
 // ─── Badge ───────────────────────────────────────────────────────────────────
-function Badge({ label, variant }: { label: string; variant: "new" | "hot" | "sale" | "best" }) {
+function Badge({
+  label,
+  variant,
+}: {
+  label: string;
+  variant: "new" | "hot" | "sale" | "best";
+}) {
   const styles = {
-    new:  "bg-emerald-50 text-emerald-700 border-emerald-200",
-    hot:  "bg-red-50 text-red-600 border-red-200",
+    new: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    hot: "bg-red-50 text-red-600 border-red-200",
     sale: "bg-amber-50 text-amber-700 border-amber-200",
     best: "bg-[#C4A468]/10 text-[#9b7930] border-[#C4A468]/30",
   };
   return (
-    <span className={`text-xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded border ${styles[variant]}`}>
+    <span
+      className={`text-xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded border ${styles[variant]}`}
+    >
       {label}
     </span>
   );
 }
 
 // ─── Product Card ─────────────────────────────────────────────────────────────
-function ProductCard({ product, index }: { product: ProductItem; index: number }) {
+function ProductCard({
+  product,
+  index,
+}: {
+  product: ProductItem;
+  index: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [hovered, setHovered] = useState(false);
@@ -36,7 +50,11 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
         className="group bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col shadow-sm hover:shadow-xl hover:border-[#C4A468]/25 transition-all duration-300"
         initial={{ opacity: 0, y: 32 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.08 }}
+        transition={{
+          duration: 0.5,
+          ease: [0.22, 1, 0.36, 1],
+          delay: (index % 3) * 0.08,
+        }}
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
       >
@@ -94,27 +112,41 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
                   <svg
                     key={i}
                     className={`w-3.5 h-3.5 ${i < Math.floor(product.rating!) ? "text-amber-400" : "text-gray-200"}`}
-                    viewBox="0 0 20 20" fill="currentColor"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
                   >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <span className="text-xs text-gray-400">({product.reviewCount ?? 0})</span>
+              <span className="text-xs text-gray-400">
+                ({product.reviewCount ?? 0})
+              </span>
             </div>
           )}
 
           {/* Price */}
           <div className="flex items-end justify-between mt-auto pt-2">
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-black text-gray-900">{product.price}</span>
+              <span className="text-xl font-black text-gray-900">
+                {product.price}
+              </span>
               {product.originalPrice && (
-                <span className="text-sm text-gray-400 line-through">{product.originalPrice}</span>
+                <span className="text-sm text-gray-400 line-through">
+                  {product.originalPrice}
+                </span>
               )}
             </div>
             {product.originalPrice && (
               <span className="text-xs font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">
-                -{Math.round((1 - parseInt(product.price.replace(/[^\d]/g, "")) / parseInt(product.originalPrice.replace(/[^\d]/g, ""))) * 100)}%
+                -
+                {Math.round(
+                  (1 -
+                    parseInt(product.price.replace(/[^\d]/g, "")) /
+                      parseInt(product.originalPrice.replace(/[^\d]/g, ""))) *
+                    100,
+                )}
+                %
               </span>
             )}
           </div>
@@ -136,11 +168,11 @@ function ProductCard({ product, index }: { product: ProductItem; index: number }
       </motion.div>
 
       {showContact && (
-  <ContactPopup
-    productName={product.name}
-    onClose={() => setShowContact(false)}
-  />
-)}
+        <ContactPopup
+          productName={product.name}
+          onClose={() => setShowContact(false)}
+        />
+      )}
     </>
   );
 }
@@ -153,7 +185,13 @@ const CATEGORIES = [
   "Rượu sâm cao cấp",
 ];
 
-function FilterTabs({ active, onChange }: { active: string; onChange: (cat: string) => void }) {
+function FilterTabs({
+  active,
+  onChange,
+}: {
+  active: string;
+  onChange: (cat: string) => void;
+}) {
   return (
     <div className="flex flex-wrap gap-2">
       {CATEGORIES.map((cat) => (
@@ -188,13 +226,15 @@ export default function ProductSection() {
   const headerInView = useInView(headerRef, { once: true, margin: "-60px" });
 
   const [activeCategory, setActiveCategory] = useState("Tất cả");
-  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">("default");
+  const [sortBy, setSortBy] = useState<"default" | "price-asc" | "price-desc">(
+    "default",
+  );
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = PRODUCTS.filter((product) =>
     activeCategory === "Tất cả"
       ? true
-      : product.category.toLowerCase().includes(activeCategory.toLowerCase())
+      : product.category.toLowerCase().includes(activeCategory.toLowerCase()),
   );
 
   const getPrice = (price: string) => {
@@ -234,8 +274,12 @@ export default function ProductSection() {
             <p className="text-[#C4A468] text-xs font-semibold tracking-widest uppercase mb-2">
               Cửa hàng
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Tất cả sản phẩm</h2>
-            <p className="text-gray-400 text-sm mt-2">{filtered.length} sản phẩm</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Tất cả sản phẩm
+            </h2>
+            <p className="text-gray-400 text-sm mt-2">
+              {filtered.length} sản phẩm
+            </p>
           </div>
 
           <select

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cld } from "@/lib/cloudinary";
 
 const PRODUCTS = [
   {
@@ -9,7 +10,7 @@ const PRODUCTS = [
     name: "Rượu Sâm Ngọc Linh Trà My",
     desc: "Chai 500ml",
     tag: "Bán chạy",
-    image: "/image/banner-popup.png",
+    image: cld("samtramy/banner-popup"),
     href: "#combo",
   },
 ];

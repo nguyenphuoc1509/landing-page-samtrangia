@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { cld } from "@/lib/cloudinary";
 
 export default function CtaBanner() {
   const ref = useRef<HTMLDivElement>(null);
@@ -111,7 +112,7 @@ export default function CtaBanner() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <Image
-                src="/image/PREMIUM.png"
+                src={cld("samtramy/PREMIUM", { width: 340 })}
                 alt="Rượu Sâm Trà My — Rượu Sâm Ngọc Linh"
                 fill
                 className="object-contain drop-shadow-2xl"

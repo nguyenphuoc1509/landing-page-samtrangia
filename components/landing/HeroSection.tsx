@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HERO_BADGES } from "./data";
-import Logo from "@/public/image/SAMTRANGIA512.png";
+import { cld } from "@/lib/cloudinary";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -44,14 +44,14 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-[#f8f5ef]">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/image/bg-hero.jpg')" }}
+        style={{
+          backgroundImage: `url('${cld("samtramy/bg-hero", { width: 1920, quality: 80 })}')`,
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5ef]/60 via-[#f8f5ef]/40 to-[#f8f5ef]/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#f8f5ef]/80 via-transparent to-[#f8f5ef]/20" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-12">
-
-
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT — Text */}
           <motion.div
@@ -63,10 +63,10 @@ export default function HeroSection() {
             {/* Logo — trong flow, không absolute */}
             <motion.div variants={itemVariants}>
               <Image
-                src={Logo}
+                src={cld("samtramy/SAMTRANGIA512", { width: 220 })}
                 alt="Sâm Trần Gia"
-                width={160}
-                height={160}
+                width={110}
+                height={110}
                 className="object-contain drop-shadow-md"
               />
             </motion.div>
@@ -172,13 +172,13 @@ export default function HeroSection() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               <Image
-                src="/image/PREMIUM.png"
-                alt="Rượu Sâm Trà My — Rượu sâm cao cấp từ Sâm Ngọc Linh"
-                fill
-                priority
-                className="object-contain drop-shadow-2xl"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+  src={cld("samtramy/PREMIUM", { width: 800 })}
+  alt="Rượu Sâm Trà My — Rượu sâm cao cấp từ Sâm Ngọc Linh"
+  fill
+  priority
+  className="object-contain drop-shadow-2xl"
+  sizes="(max-width: 768px) 100vw, 50vw"
+/>
             </motion.div>
           </motion.div>
         </div>

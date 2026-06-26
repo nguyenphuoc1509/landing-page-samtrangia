@@ -1,3 +1,4 @@
+import { cld } from "@/lib/cloudinary";
 import { NavItem, StatItem, IngredientItem, ComparisonRow, TestimonialItem, ComboItem, FooterLinks, ProductItem } from "./types";
 
 export const NAV_ITEMS: NavItem[] = [
@@ -25,23 +26,21 @@ export const HERO_BADGES: string[] = [
 export const INGREDIENTS: IngredientItem[] = [
   {
     name: "SÂM NGỌC LINH NGUYÊN CỦ",
-    description:
-      "Tinh hoa từ Sâm Ngọc Linh quý hiếm, giữ trọn giá trị tự nhiên trong từng sản phẩm.",
-    image: "/image/sam-ngoc-linh.jpg",
+    description: "Tinh hoa từ Sâm Ngọc Linh quý hiếm, giữ trọn giá trị tự nhiên trong từng sản phẩm.",
+    image: cld("samtramy/sam-ngoc-linh"),
   },
   {
     name: "RƯỢU NẾP TRUYỀN THỐNG",
-    description:
-      "Kết hợp cùng rượu nếp lên men tự nhiên, tạo nên hương vị dịu nhẹ, tinh tế.",
-    image: "/image/nguyen-lieu-hat-nep.png",
+    description: "Kết hợp cùng rượu nếp lên men tự nhiên, tạo nên hương vị dịu nhẹ, tinh tế.",
+    image: cld("samtramy/nguyen-lieu-hat-nep"),
   },
   {
     name: "CHAI THỦY TINH CAO CẤP",
-    description:
-      "Thiết kế sang trọng, phù hợp thưởng thức hoặc làm quà biếu ý nghĩa.",
-    image: "/image/ruou-premium.png",
+    description: "Thiết kế sang trọng, phù hợp thưởng thức hoặc làm quà biếu ý nghĩa.",
+    image: cld("samtramy/ruou-premium"),
   },
 ];
+
 export const COMPARISON_ROWS: ComparisonRow[] = [
   { label: "Nguồn nguyên liệu" },
   { label: "Hàm lượng hoạt chất" },
@@ -71,22 +70,19 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: "Anh Tuấn",
     role: "Doanh nhân",
     rating: 5,
-    quote:
-      "Mình thường nhấp một ly rượu sâm nhỏ sau bữa tối, cảm thấy người ấm và thư giãn hơn rõ rệt.",
+    quote: "Mình thường nhấp một ly rượu sâm nhỏ sau bữa tối, cảm thấy người ấm và thư giãn hơn rõ rệt.",
   },
   {
     name: "Chị Yến",
     role: "Nhân viên văn phòng",
     rating: 5,
-    quote:
-      "Mình mua rượu sâm biếu ba ở nhà, ông uống thử rồi khen vị êm, không gắt như rượu thường.",
+    quote: "Mình mua rượu sâm biếu ba ở nhà, ông uống thử rồi khen vị êm, không gắt như rượu thường.",
   },
   {
     name: "Anh Huy",
     role: "Kinh doanh",
     rating: 5,
-    quote:
-      "Rượu sâm mình mua biếu đối tác cuối năm, ai cũng khen bình rượu sang trọng và chất lượng.",
+    quote: "Rượu sâm mình mua biếu đối tác cuối năm, ai cũng khen bình rượu sang trọng và chất lượng.",
   },
 ];
 
@@ -102,7 +98,7 @@ export const COMBOS: ComboItem[] = [
       "Mang dấu ấn tinh hoa Ngọc Linh",
     ],
     highlight: false,
-    image: "/san-pham/ruou-sam-premium.png",
+    image: cld("samtramy/ruou-sam-premium"),
   },
   {
     name: "RƯỢU WHISKY SÂM NGỌC LINH",
@@ -115,7 +111,7 @@ export const COMBOS: ComboItem[] = [
       "Phù hợp thưởng thức và biếu tặng",
     ],
     highlight: true,
-    image: "/san-pham/ruou-whisky-500ml.png",
+    image: cld("samtramy/ruou-whisky-500ml"),
   },
   {
     name: "RƯỢU SÂM NGỌC LINH CHAI CLASSIC",
@@ -128,7 +124,7 @@ export const COMBOS: ComboItem[] = [
       "Lựa chọn phù hợp làm quà tặng",
     ],
     highlight: false,
-    image: "/san-pham/ruou-sam-classic.png",
+    image: cld("samtramy/ruou-sam-classic"),
   },
 ];
 
@@ -150,12 +146,11 @@ export const PRODUCTS: ProductItem[] = [
     category: "Rượu sâm ngọc linh",
     price: "2.000.000đ",
     unit: "Chai 500ml",
-    image: "/san-pham/ruou-whisky-500ml.png",
+    image: cld("samtramy/ruou-whisky-500ml", { width: 600 }),
     rating: 5,
     reviewCount: 128,
     badges: [{ label: "Bán chạy", variant: "best" }],
   },
-
   {
     id: "ruou-sam-trai-cay-len-men",
     name: "Samy — Rượu Sâm Ngọc Linh vị trái cây lên men",
@@ -163,7 +158,7 @@ export const PRODUCTS: ProductItem[] = [
     price: "1.080.000đ",
     originalPrice: "1.180.000đ",
     unit: "Chai 500ml",
-    image: "/san-pham/ruou-samy.png",
+    image: cld("samtramy/ruou-samy", { width: 600 }),
     rating: 5,
     reviewCount: 96,
     badges: [
@@ -171,72 +166,66 @@ export const PRODUCTS: ProductItem[] = [
       { label: "Sale", variant: "sale" },
     ],
   },
-
   {
     id: "combo-3-chai-whisky-sam-ngoc-linh",
     name: "Combo 3 Chai Rượu Whisky Sâm Ngọc Linh",
     category: "Combo quà tặng",
     price: "Liên hệ",
     unit: "Combo 3 chai",
-    image: "/san-pham/combo-whisky-3-chai.png",
+    image: cld("samtramy/combo-whisky-3-chai", { width: 600 }),
     rating: 5,
     reviewCount: 45,
     badges: [{ label: "Quà tặng", variant: "best" }],
   },
-
   {
     id: "ruou-cay-sam-ngoc-linh-1000ml",
     name: "Rượu Cây Sâm Ngọc Linh 1000ml",
     category: "Rượu sâm ngọc linh",
     price: "Liên hệ",
     unit: "Bình 1000ml",
-    image: "/san-pham/ruou-cay-sam-1000ml.jpg",
+    image: cld("samtramy/ruou-cay-sam-1000ml", { width: 600 }),
     rating: 5,
     reviewCount: 38,
   },
-
   {
     id: "ruou-sam-ngoc-linh-187ml",
     name: "Rượu Sâm Ngọc Linh 187ml",
     category: "Rượu sâm ngọc linh",
     price: "Liên hệ",
     unit: "Chai 187ml",
-    image: "/san-pham/ruou-sam-187ml.png",
+    image: cld("samtramy/ruou-sam-187ml", { width: 600 }),
     rating: 5,
     reviewCount: 52,
     badges: [{ label: "Bán chạy", variant: "best" }],
   },
-
   {
     id: "ruou-sam-ngoc-linh-premium",
     name: "Rượu Sâm Ngọc Linh Chai Premium",
     category: "Rượu sâm cao cấp",
     price: "Liên hệ",
     unit: "Chai Premium",
-    image: "/san-pham/ruou-sam-premium.png",
+    image: cld("samtramy/ruou-sam-premium", { width: 600 }),
     rating: 5,
     reviewCount: 31,
     badges: [{ label: "Cao cấp", variant: "best" }],
   },
-
   {
     id: "ruou-sam-ngoc-linh-classic",
     name: "Rượu Sâm Ngọc Linh Chai Classic",
     category: "Rượu sâm cao cấp",
     price: "Liên hệ",
     unit: "Chai Classic",
-    image: "/san-pham/ruou-sam-classic.png",
+    image: cld("samtramy/ruou-sam-classic", { width: 600 }),
     rating: 5,
     reviewCount: 27,
   },
-
   {
     id: "combo-3-chai-ruou-sam-ngoc-linh-100ml",
     name: "Combo 3 Chai Rượu Sâm Ngọc Linh",
     category: "Combo quà tặng",
     price: "Liên hệ",
     unit: "Combo 3 chai 100ml",
-    image: "/san-pham/combo-sam-100ml.png",
+    image: cld("samtramy/combo-sam-100ml", { width: 600 }),
     rating: 5,
     reviewCount: 41,
     badges: [{ label: "Quà tặng", variant: "best" }],

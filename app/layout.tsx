@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rượu Sâm Trà My",
+  title: "Rượu Sâm Trần Gia",
   description:
     "Rượu Sâm Ngọc Linh nguyên chất - Trà My Quảng Nam",
   keywords: [
@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "rượu sâm nguyên củ",
     "sâm ngọc linh chính hãng",
     "panax vietnamensis",
+    "sâm trần gia", 
+    "samtramy",
   ],
 };
 
