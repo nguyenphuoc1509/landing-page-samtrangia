@@ -22,7 +22,7 @@ export default function ComparisonSection() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="text-[#C4A468] text-xs font-semibold tracking-widest uppercase mb-4">
-              Vì sao chọn Rượu Sâm Trà My
+              Vì sao chọn Rượu Sâm Trần Gia
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
               Khác biệt từ thiên nhiên, khác biệt từ chất lượng

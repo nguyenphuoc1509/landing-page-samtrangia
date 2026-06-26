@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { HERO_BADGES } from "./data";
+import Logo from "@/public/image/SAMTRANGIA512.png";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -48,9 +49,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5ef]/60 via-[#f8f5ef]/40 to-[#f8f5ef]/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#f8f5ef]/80 via-transparent to-[#f8f5ef]/20" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-12">
 
+
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT — Text */}
           <motion.div
             className="flex flex-col gap-6"
@@ -58,28 +60,45 @@ export default function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            <motion.p
+            {/* Logo — trong flow, không absolute */}
+            <motion.div variants={itemVariants}>
+              <Image
+                src={Logo}
+                alt="Sâm Trần Gia"
+                width={160}
+                height={160}
+                className="object-contain drop-shadow-md"
+              />
+            </motion.div>
+
+            {/* Distributor badge */}
+            <motion.div
               variants={itemVariants}
-              className="text-[#C4A468] text-sm font-semibold tracking-widest uppercase"
+              className="flex items-center gap-2"
             >
-              Rượu sâm cao cấp từ thiên nhiên
-            </motion.p>
+              <span className="inline-flex items-center gap-1.5 bg-[#C4A468]/10 border border-[#C4A468]/30 text-[#9b7930] text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full">
+                🌿 Nhà phân phối chính thức Samtramy
+              </span>
+            </motion.div>
 
             <motion.h1
               variants={itemVariants}
               className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight tracking-tight"
             >
-              RƯỢU SÂM NGỌC LINH
+              <span className="text-[#C4A468]">RƯỢU SÂM NGỌC LINH</span>
               <br />
-              BÁU VẬT TỪ ĐẠI NGÀN
+              CHÍNH HÃNG
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-gray-600 text-base leading-relaxed max-w-sm"
             >
-              Tinh hoa Sâm Ngọc Linh Quảng Nam — rượu sâm ngâm theo phương pháp
-              truyền thống, bồi bổ sức khỏe cho cả gia đình.
+              <span className="font-semibold text-gray-800">Sâm Trần Gia</span>{" "}
+              là nhà phân phối độc quyền rượu sâm thương hiệu{" "}
+              <span className="font-semibold text-gray-800">Samtramy</span> —
+              tinh hoa Sâm Ngọc Linh Quảng Nam, ngâm theo phương pháp truyền
+              thống, bồi bổ sức khỏe cho cả gia đình.
             </motion.p>
 
             <motion.div
@@ -162,7 +181,6 @@ export default function HeroSection() {
               />
             </motion.div>
           </motion.div>
-
         </div>
       </div>
 

@@ -164,7 +164,7 @@ export default function StorySection() {
             >
               <img
                 src="/image/banner.png"
-                alt="Câu chuyện sản phẩm Rượu Sâm Trà My"
+                alt="Câu chuyện sản phẩm Rượu Sâm Trần Gia"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
             </motion.div>
@@ -176,10 +176,10 @@ export default function StorySection() {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             >
               <p className="text-[#C4A468] text-xs font-semibold tracking-widest uppercase">
-                Câu chuyện Rượu Sâm Trà My
+                Câu chuyện Rượu Sâm Trần GIa
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
-                Từ đại ngàn Ngọc Linh, Samtrangia mang đến những chai rượu sâm lưu giữ hương vị và giá trị của núi rừng Việt Nam.
+                Từ đại ngàn Ngọc Linh, Sâm Trần Gia mang đến những chai rượu sâm lưu giữ hương vị và giá trị của núi rừng Việt Nam.
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed">
                 Sâm Ngọc Linh là một trong những dòng sâm quý của Việt Nam, gắn liền
