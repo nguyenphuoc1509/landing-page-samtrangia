@@ -94,8 +94,8 @@ export default function ContactPopup({ productName, onClose }: ContactPopupProps
                 📱
               </div>
               <div className="flex-1">
-                <p className="text-xs text-gray-400 mb-0.5">Facebook Messenger</p>
-                <p className="text-sm font-semibold text-gray-900">Sâm Ngọc Linh Official</p>
+                <p className="text-xs text-gray-400 mb-0.5">Facebook</p>
+                <p className="text-sm font-semibold text-gray-900">Sâm Việt Nam - Trà My Quảng Nam </p>
               </div>
               <span className="text-gray-300 group-hover:text-[#C4A468] transition-colors">›</span>
             </a>
