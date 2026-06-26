@@ -53,7 +53,7 @@ export default function ContactPopup({ productName, onClose }: ContactPopupProps
           <div className="p-5 flex flex-col gap-3">
             {/* Phone */}
             
-            <a href="tel:0901234567"
+            <a href="tel:0866942889"
               className="flex items-center gap-3 p-3.5 rounded-xl border border-gray-100 hover:border-[#C4A468]/40 hover:bg-amber-50/50 transition-all group"
             >
               <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-600 text-lg shrink-0">
@@ -61,14 +61,14 @@ export default function ContactPopup({ productName, onClose }: ContactPopupProps
               </div>
               <div className="flex-1">
                 <p className="text-xs text-gray-400 mb-0.5">Hotline</p>
-                <p className="text-sm font-semibold text-gray-900">0901 234 567</p>
+                <p className="text-sm font-semibold text-gray-900">0866 942 889</p>
               </div>
               <span className="text-gray-300 group-hover:text-[#C4A468] transition-colors">›</span>
             </a>
 
             {/* Zalo */}
             
-            <a href="https://zalo.me/0901234567"
+            <a href="https://zalo.me/0866942889"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 p-3.5 rounded-xl border border-gray-100 hover:border-[#C4A468]/40 hover:bg-amber-50/50 transition-all group"
@@ -78,14 +78,14 @@ export default function ContactPopup({ productName, onClose }: ContactPopupProps
               </div>
               <div className="flex-1">
                 <p className="text-xs text-gray-400 mb-0.5">Zalo</p>
-                <p className="text-sm font-semibold text-gray-900">0901 234 567</p>
+                <p className="text-sm font-semibold text-gray-900">0866 942 889</p>
               </div>
               <span className="text-gray-300 group-hover:text-[#C4A468] transition-colors">›</span>
             </a>
 
             {/* Facebook */}
             
-            <a  href="https://m.me/yourpage"
+            <a  href="https://www.facebook.com/samtramyvietnam"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 p-3.5 rounded-xl border border-gray-100 hover:border-[#C4A468]/40 hover:bg-amber-50/50 transition-all group"
